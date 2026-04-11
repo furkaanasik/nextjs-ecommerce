@@ -3,7 +3,7 @@
 import Image from "next/image";
 import PaymentForm from "@/components/PaymentForm";
 import ShippingForm from "@/components/ShippingForm";
-import { CartItemType, ShippingFormInputs } from "@/types";
+import { CartItemsType, ShippingFormInputs } from "@/types";
 import { ArrowRight, Trash2 } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
@@ -24,7 +24,7 @@ const steps = [
 ];
 
 // TEMPORARY
-const cartItems: CartItemType[] = [
+const cartItems: CartItemsType = [
   {
     id: 1,
     name: "Adidas CoreFit T-Shirt",
@@ -83,9 +83,7 @@ const cartItems: CartItemType[] = [
 const CartPage = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const [shippingForm, setShippingForm] = useState<ShippingFormInputs | null>(
-    null,
-  );
+  const [shippingForm, setShippingForm] = useState<ShippingFormInputs>();
 
   const activeStep = parseInt(searchParams.get("step") || "1");
 

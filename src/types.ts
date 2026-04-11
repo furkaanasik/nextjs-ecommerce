@@ -17,6 +17,8 @@ export type CartItemType = ProductType & {
   selectedColor: string;
 };
 
+export type CartItemsType = CartItemType[];
+
 export const shippingFormSchema = z.object({
   name: z.string().min(1, "Name is required!"),
   email: z.email().min(1, "Email is required!"),
@@ -47,3 +49,13 @@ export const paymentFormSchema = z.object({
 });
 
 export type PaymentFormInputs = z.infer<typeof paymentFormSchema>;
+
+export type CartStoreStateType = {
+  cart: CartItemsType;
+}
+
+export type CartStoreActionsType = {
+  addToCart: (product:CartItemType)=> void;
+  removeFromCart: (product:CartItemType)=> void;
+  clearCart: ()=> void;
+}
