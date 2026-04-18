@@ -39,7 +39,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
   return (
     <div className="shadow-lg rounded-lg overflow-hidden">
       {/* Image Section */}
-      <Link href={`prodcut/${product.id}`}>
+      <Link href={`products/${product.id}`}>
         <div className="relative aspect-[2/3]">
           <Image
             src={product.images[productTypes.color]}
